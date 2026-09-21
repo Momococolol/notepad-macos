@@ -1,6 +1,6 @@
-# Notepad for macOS
+# Notepad2 for macOS
 
-A calm, native SwiftUI notes app for macOS. It is designed around fast capture, a clean sidebar, and rich visual covers.
+A modern native SwiftUI notes app for macOS. Notepad2 is designed around fast capture, a clean sidebar, rich visual covers, and local-first ownership of your writing.
 
 ## Features
 
@@ -13,6 +13,8 @@ A calm, native SwiftUI notes app for macOS. It is designed around fast capture, 
 - Local persistence in `~/Library/Application Support/Notepad`
 - Keyboard shortcuts: `⌘N` new note, `⌘F` search, `⌘⇧P` preview, `⌘⇧D` duplicate
 - Native macOS layout with split navigation, editor, and inspector
+- Settings window for appearance, accent color, autosave, and editor sizing
+- JSON backup/restore and Markdown export from the main toolbar
 
 ## Run
 

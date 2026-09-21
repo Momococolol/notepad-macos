@@ -2,8 +2,8 @@ import SwiftUI
 import AVKit
 import AppKit
 
-struct ContentView: View { @EnvironmentObject var store: NoteStore; @State private var preview = false
-    var body: some View { NavigationSplitView { Sidebar() } content: { NoteList() } detail: { if let n = store.selected { Editor(note: n, preview: $preview) } else { ContentUnavailableView("Select a note", systemImage: "note.text", description: Text("Choose a note or create a new one.")) } }.searchable(text: $store.query, placement: .sidebar, prompt: "Search notes") }
+struct ContentView: View { @EnvironmentObject var store: NoteStore; @State private var preview = false; @State private var showExport = false
+    var body: some View { NavigationSplitView { Sidebar() } content: { NoteList() } detail: { if let n = store.selected { Editor(note: n, preview: $preview) } else { ContentUnavailableView("Select a note", systemImage: "note.text", description: Text("Choose a note or create a note.")) } }.searchable(text: $store.query, placement: .sidebar, prompt: "Search notes").toolbar { ToolbarItem { Button { showExport = true } label: { Image(systemName: "square.and.arrow.up") } } }.sheet(isPresented: $showExport) { ExportView().environmentObject(store) } }
 }
 struct Sidebar: View { @EnvironmentObject var s: NoteStore
     var body: some View { List { Section("Library") { row("All Notes", "note.text", .all, s.notes.filter {!$0.isArchived}.count); row("Pinned", "pin", .pinned, s.notes.filter {$0.isPinned && !$0.isArchived}.count); row("Archive", "archivebox", .archive, s.notes.filter {$0.isArchived}.count) }; Section("Folders") { ForEach(s.folders, id:\.self) { f in row(f, "folder", .folder(f), s.notes.filter {$0.folder == f && !$0.isArchived}.count) } }; Section("Tags") { ForEach(s.tags, id:\.self) { t in row(t, "tag", .tag(t), s.notes.filter {$0.tags.contains(t)}.count) } } }.listStyle(.sidebar).toolbar { Button(action: s.add) { Label("New Note", systemImage:"square.and.pencil") } } }
