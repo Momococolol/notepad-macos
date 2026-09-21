@@ -1,0 +1,27 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+		000000000000000000000001 = {isa = PBXFileReference; lastKnownFileType = folder; path = Notepad; sourceTree = "<group>";};
+		000000000000000000000002 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>";};
+		000000000000000003 = {isa = PBXBuildFile; fileRef = 000000000000000000000004;};
+		000000000000000004 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotepadApp.swift; sourceTree = "<group>";};
+		000000000000000005 = {isa = PBXBuildFile; fileRef = 000000000000000006;};
+		000000000000000006 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>";};
+		000000000000000007 = {isa = PBXBuildFile; fileRef = 000000000000000008;};
+		000000000000000008 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>";};
+		000000000000000009 = {isa = PBXBuildFile; fileRef = 00000000000000000A;};
+		00000000000000000A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>";};
+		00000000000000000B = {isa = PBXGroup; children = (000000000000000004,000000000000000006,000000000000000008,00000000000000000A,000000000000000002); path = Notepad; sourceTree = "<group>";};
+		00000000000000000C = {isa = PBXGroup; children = (00000000000000000B,); sourceTree = "<group>";};
+		00000000000000000D = {isa = PBXNativeTarget; buildConfigurationList = 000000000000000010; buildPhases = (00000000000000000E,); name = Notepad; productName = Notepad; productReference = 000000000000000001; productType = "com.apple.product-type.application";};
+		00000000000000000E = {isa = PBXSourcesBuildPhase; files = (000000000000000003,000000000000000005,000000000000000007,000000000000000009);};
+		00000000000000000F = {isa = PBXProject; buildConfigurationList = 000000000000000011; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; mainGroup = 00000000000000000C; targets = (00000000000000000D,);};
+		000000000000000010 = {isa = XCConfigurationList; buildConfigurations = (000000000000000012,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release;};
+		000000000000000011 = {isa = XCConfigurationList; buildConfigurations = (000000000000000012,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release;};
+		000000000000000012 = {isa = XCBuildConfiguration; buildSettings = {PRODUCT_BUNDLE_IDENTIFIER = com.example.Notepad; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; MACOSX_DEPLOYMENT_TARGET = 13.0; INFOPLIST_FILE = Notepad/Info.plist; SDKROOT = macosx;}; name = Release;};
+	};
+	rootObject = 00000000000000000F;
+}
