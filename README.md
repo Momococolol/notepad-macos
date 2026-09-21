@@ -18,6 +18,12 @@ A calm, native SwiftUI notes app for macOS. It is designed around fast capture, 
 
 Open `Notepad.xcodeproj` in Xcode and run the `Notepad` macOS target. Deployment target: macOS 13.0+.
 
+To make a launchable app and installer DMG after installing Xcode, run `./scripts/build-dmg.sh`. The DMG uses the standard drag-to-Applications layout.
+
+## Apple signing and certification
+
+The project is prepared for automatic signing, but certification cannot be embedded without the owner's Apple Developer account. In Xcode, select the `Notepad` target, choose your Team, enable Hardened Runtime, and use a Developer ID Application certificate for distribution outside the Mac App Store. Then notarize the DMG with Apple's `notarytool` and staple the ticket. Apple documents this workflow at https://developer.apple.com/documentation/security/notarizing-macos-software-before-distribution.
+
 The project is intentionally dependency-free and stores all note data locally as JSON. Images and videos are copied into the app's local media folder.
 
 ## GitHub
